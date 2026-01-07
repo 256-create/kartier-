@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Nolan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* COPY EXACT SAME CSS FROM INDEX.HTML */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #0a0a0a; --secondary-color: #121212; --accent-color: #8a6d3b;
+            --accent-light: #b89446; --text-color: #f0f0f0; --text-light: #b0b0b0;
+            --border-color: #333; --card-bg: #1a1a1a;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--secondary-color); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .knight-logo { font-size: 32px; color: var(--accent-color); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { font-weight: 500; font-size: 17px; padding: 5px 10px; border-radius: 4px; }
+        nav ul li a:hover { background-color: rgba(138, 109, 59, 0.1); }
+        .hamburger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
+        .hamburger-menu span { height: 3px; width: 100%; background-color: var(--text-color); border-radius: 10px; transition: all 0.3s ease; }
+        .hamburger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+        .hamburger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-nav { position: fixed; top: 80px; right: -100%; width: 300px; height: calc(100vh - 80px); background-color: var(--secondary-color); z-index: 999; transition: right 0.5s ease; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.3); }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; }
+        .mobile-nav ul li { margin-bottom: 25px; }
+        .mobile-nav ul li a { font-size: 20px; font-weight: 500; }
+        .error-content { padding: 150px 0; text-align: center; }
+        .error-code { font-size: 120px; color: var(--accent-color); margin-bottom: 20px; font-weight: 700; }
+        .error-title { font-size: 36px; margin-bottom: 20px; }
+        .error-message { font-size: 18px; margin-bottom: 40px; max-width: 600px; margin: 0 auto 40px; color: var(--text-light); }
+        .read-more { display: inline-block; background-color: var(--accent-color); color: var(--primary-color); padding: 15px 30px; border-radius: 5px; font-weight: 600; transition: background-color 0.3s ease; text-decoration: none; font-size: 16px; }
+        .read-more:hover { background-color: var(--accent-light); color: var(--primary-color); }
+        .social-section, .contact-section, footer { /* Same as index */ }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger-menu { display: flex; }
+            .mobile-nav.active { right: 0; }
+            .error-code { font-size: 80px; }
+            .error-title { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="knight-logo">♘</div>
+                <div class="logo-text">Nolan</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog1.html">Eyeballs Method</a></li>
+                    <li><a href="blog2.html">Crypto Guide</a></li>
+                    <li><a href="blog3.html">Web Dev</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog1.html">Eyeballs Method</a></li>
+                <li><a href="blog2.html">Crypto Guide</a></li>
+                <li><a href="blog3.html">Web Dev</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="error-content">
+        <div class="container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">The page you're looking for doesn't exist or has been moved. Don't worry—even the best digital strategists occasionally take wrong turns.</p>
+            <a href="index.html" class="read-more">Return to Homepage</a>
+            
+            <div style="margin-top: 50px;">
+                <p style="margin-bottom: 20px;">Or explore one of these popular pages:</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="about.html" class="read-more" style="background-color: var(--card-bg); color: var(--text-color);">About Me</a>
+                    <a href="blog1.html" class="read-more" style="background-color: var(--card-bg); color: var(--text-color);">Eyeballs Method</a>
+                    <a href="blog3.html" class="read-more" style="background-color: var(--card-bg); color: var(--text-color);">Web Development</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COPY SOCIAL, CONTACT, AND FOOTER SECTIONS FROM INDEX.HTML -->
+    <section class="social-section">
+        <div class="container">
+            <h3 class="social-title">Connect With Me</h3>
+            <div class="social-icons">
+                <a href="https://instagram.com/nolanislockedin" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://t.me/Wo2rich" target="_blank" class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/256746560891" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-fax"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>nolanigo9@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location">
+                <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">2025 Marshall St. Nolan LLC All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

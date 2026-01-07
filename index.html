@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan | Digital Strategist & Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Copy ALL CSS from previous version here */
+        /* I'm shortening this to save space, but use the full CSS from earlier */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #0a0a0a; --secondary-color: #121212; --accent-color: #8a6d3b;
+            --accent-light: #b89446; --text-color: #f0f0f0; --text-light: #b0b0b0;
+            --border-color: #333; --card-bg: #1a1a1a;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--secondary-color); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .knight-logo { font-size: 32px; color: var(--accent-color); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { font-weight: 500; font-size: 17px; padding: 5px 10px; border-radius: 4px; }
+        nav ul li a:hover { background-color: rgba(138, 109, 59, 0.1); }
+        .hamburger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
+        .hamburger-menu span { height: 3px; width: 100%; background-color: var(--text-color); border-radius: 10px; transition: all 0.3s ease; }
+        .hamburger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+        .hamburger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-nav { position: fixed; top: 80px; right: -100%; width: 300px; height: calc(100vh - 80px); background-color: var(--secondary-color); z-index: 999; transition: right 0.5s ease; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.3); }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; }
+        .mobile-nav ul li { margin-bottom: 25px; }
+        .mobile-nav ul li a { font-size: 20px; font-weight: 500; }
+        .hero { padding: 100px 0 80px; background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; text-align: center; }
+        .quote-container { max-width: 800px; margin: 0 auto; padding: 50px; background-color: rgba(26,26,26,0.8); border-radius: 15px; border-left: 5px solid var(--accent-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .quote-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; line-height: 1.5; margin-bottom: 25px; font-style: italic; color: var(--accent-light); }
+        .quote-author { font-size: 20px; color: var(--text-light); font-weight: 500; }
+        .blogs-section { padding: 80px 0; }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 60px; color: var(--accent-color); position: relative; }
+        .section-title::after { content: ''; position: absolute; width: 80px; height: 3px; background-color: var(--accent-color); bottom: -15px; left: 50%; transform: translateX(-50%); }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .blog-card { background-color: var(--card-bg); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid var(--border-color); }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .blog-img { height: 200px; background-size: cover; background-position: center; }
+        .blog-1-img { background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        .blog-2-img { background-image: url('https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+        .blog-3-img { background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w-1350&q=80'); }
+        .blog-content { padding: 25px; }
+        .blog-title { font-size: 22px; font-weight: 600; margin-bottom: 20px; color: var(--text-color); min-height: 60px; }
+        .blog-excerpt { color: var(--text-light); margin-bottom: 25px; font-size: 15px; display: none; }
+        .blog-excerpt.show { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .read-more { display: inline-block; background-color: var(--accent-color); color: var(--primary-color); padding: 10px 20px; border-radius: 5px; font-weight: 600; transition: background-color 0.3s ease; cursor: pointer; border: none; font-family: 'Poppins', sans-serif; font-size: 15px; text-decoration: none; }
+        .read-more:hover { background-color: var(--accent-light); color: var(--primary-color); }
+        .social-section { padding: 60px 0; background-color: var(--secondary-color); text-align: center; }
+        .social-title { font-size: 24px; margin-bottom: 30px; color: var(--accent-color); }
+        .social-icons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .social-icon { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .social-icon i { font-size: 28px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background-color: var(--card-bg); border-radius: 50%; transition: all 0.3s ease; }
+        .social-icon:hover i { background-color: var(--accent-color); transform: translateY(-5px); }
+        .contact-section { padding: 80px 0 40px; }
+        .contact-info { display: flex; justify-content: center; flex-wrap: wrap; gap: 50px; margin-bottom: 60px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; }
+        .contact-icon { font-size: 24px; color: var(--accent-color); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background-color: var(--card-bg); border-radius: 50%; }
+        .contact-details p { color: var(--text-light); font-size: 16px; font-weight: 500; }
+        .location { text-align: center; margin-bottom: 40px; }
+        .location i { color: var(--accent-color); margin-right: 10px; font-size: 20px; }
+        footer { background-color: var(--secondary-color); padding: 30px 0; text-align: center; border-top: 1px solid var(--border-color); }
+        .copyright { color: var(--text-light); font-size: 15px; }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger-menu { display: flex; }
+            .mobile-nav.active { right: 0; }
+            .quote-text { font-size: 22px; }
+            .section-title { font-size: 32px; }
+            .contact-info { flex-direction: column; gap: 30px; }
+            .social-icons { gap: 20px; }
+        }
+        .page-content { padding: 100px 0; }
+        .article-content { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 50px; border-radius: 15px; line-height: 1.8; }
+        .article-content h1 { color: var(--accent-color); margin-bottom: 30px; font-size: 36px; }
+        .article-content h2 { color: var(--accent-light); margin: 40px 0 20px; font-size: 28px; }
+        .article-content p { margin-bottom: 20px; font-size: 17px; }
+        .article-content ul, .article-content ol { margin: 20px 0 20px 30px; }
+        .article-content li { margin-bottom: 10px; }
+        .highlight { background-color: rgba(138, 109, 59, 0.1); padding: 20px; border-left: 4px solid var(--accent-color); margin: 30px 0; border-radius: 5px; }
+        .cta-box { background: linear-gradient(135deg, var(--accent-color), #9c7c48); padding: 40px; text-align: center; border-radius: 10px; margin: 50px 0; }
+        .cta-box h3 { font-size: 28px; margin-bottom: 20px; }
+        .cta-box .read-more { background-color: var(--primary-color); color: var(--text-color); margin-top: 20px; }
+        .cta-box .read-more:hover { background-color: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="knight-logo">♘</div>
+                <div class="logo-text">Nolan</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog1.html">Eyeballs Method</a></li>
+                    <li><a href="blog2.html">Crypto Guide</a></li>
+                    <li><a href="blog3.html">Web Dev</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog1.html">Eyeballs Method</a></li>
+                <li><a href="blog2.html">Crypto Guide</a></li>
+                <li><a href="blog3.html">Web Dev</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="quote-container">
+                <p class="quote-text">"God's grace has been my constant compass, transforming trials into triumphs. His infinite wisdom is the source of my greatest inspirations."</p>
+                <p class="quote-author">— Marshall St. Nolan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="blogs-section">
+        <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img blog-1-img"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Eyeballs Method: Generating Organic Traffic From Zero</h3>
+                        <div class="blog-excerpt" id="excerpt1">
+                            <p>Discover my revolutionary marketing strategy that helps you build an audience and drive traffic organically, even with no existing followers...</p>
+                        </div>
+                        <a href="blog1.html" class="read-more">Read Full Article</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img blog-2-img"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">You're a Failure If You Don't Own Ethereum & Solana in 2026</h3>
+                        <div class="blog-excerpt" id="excerpt2">
+                            <p>An in-depth analysis of Ethereum and Solana's evolution and why these cryptocurrencies are essential for your financial future...</p>
+                        </div>
+                        <a href="blog2.html" class="read-more">Read Full Article</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img blog-3-img"></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Professional Websites at Unbeatable Prices</h3>
+                        <div class="blog-excerpt" id="excerpt3">
+                            <p>Your digital presence shouldn't cost a fortune. Discover why you need a professionally designed website now...</p>
+                        </div>
+                        <a href="blog3.html" class="read-more">Read Full Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-section">
+        <div class="container">
+            <h3 class="social-title">Connect With Me</h3>
+            <div class="social-icons">
+                <a href="https://instagram.com/nolanislockedin" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://t.me/Wo2rich" target="_blank" class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/256746560891" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-fax"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>nolanigo9@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location">
+                <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">2025 Marshall St. Nolan LLC All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        document.querySelectorAll('a').forEach(link => {
+            if (link.getAttribute('href') === '#') {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = '404.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

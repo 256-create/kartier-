@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Nolan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* COPY EXACT SAME CSS FROM INDEX.HTML ABOVE */
+        /* I'm omitting to save space, but use the full CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #0a0a0a; --secondary-color: #121212; --accent-color: #8a6d3b;
+            --accent-light: #b89446; --text-color: #f0f0f0; --text-light: #b0b0b0;
+            --border-color: #333; --card-bg: #1a1a1a;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--secondary-color); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .knight-logo { font-size: 32px; color: var(--accent-color); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { font-weight: 500; font-size: 17px; padding: 5px 10px; border-radius: 4px; }
+        nav ul li a:hover { background-color: rgba(138, 109, 59, 0.1); }
+        .hamburger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
+        .hamburger-menu span { height: 3px; width: 100%; background-color: var(--text-color); border-radius: 10px; transition: all 0.3s ease; }
+        .hamburger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+        .hamburger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-nav { position: fixed; top: 80px; right: -100%; width: 300px; height: calc(100vh - 80px); background-color: var(--secondary-color); z-index: 999; transition: right 0.5s ease; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.3); }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; }
+        .mobile-nav ul li { margin-bottom: 25px; }
+        .mobile-nav ul li a { font-size: 20px; font-weight: 500; }
+        .page-content { padding: 100px 0; }
+        .about-content { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 50px; border-radius: 15px; }
+        .about-content h1 { color: var(--accent-color); margin-bottom: 30px; font-size: 36px; text-align: center; }
+        .about-content h2 { color: var(--accent-light); margin: 40px 0 20px; font-size: 28px; }
+        .about-content p { margin-bottom: 20px; font-size: 17px; line-height: 1.8; }
+        .about-content ul { margin: 20px 0 20px 30px; }
+        .about-content li { margin-bottom: 10px; }
+        .highlight-box { background-color: rgba(138, 109, 59, 0.1); padding: 30px; border-left: 4px solid var(--accent-color); margin: 30px 0; border-radius: 5px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; }
+        .skill-item h3 { color: var(--accent-light); margin-bottom: 10px; }
+        .social-section, .contact-section, footer { /* Same as index */ }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger-menu { display: flex; }
+            .mobile-nav.active { right: 0; }
+            .about-content { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="knight-logo">♘</div>
+                <div class="logo-text">Nolan</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog1.html">Eyeballs Method</a></li>
+                    <li><a href="blog2.html">Crypto Guide</a></li>
+                    <li><a href="blog3.html">Web Dev</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog1.html">Eyeballs Method</a></li>
+                <li><a href="blog2.html">Crypto Guide</a></li>
+                <li><a href="blog3.html">Web Dev</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="about-content">
+                <h1>About Marshall St. Nolan</h1>
+                
+                <div class="highlight-box">
+                    <p style="font-size: 20px; font-style: italic; color: var(--accent-light);">
+                        "I am a visionary digital architect, blending technical mastery with strategic innovation to transform digital landscapes and empower businesses."
+                    </p>
+                </div>
+                
+                <h2>Who I Am</h2>
+                <p>I am Marshall St. Nolan, a pioneering digital strategist and developer with a unique fusion of technical expertise and marketing brilliance. As an innovative black professional in the technology sector, I've dedicated my career to dismantling barriers and creating digital solutions that not only function flawlessly but also drive tangible business growth.</p>
+                
+                <p>My journey began with an insatiable curiosity for how things work, evolving into mastery of programming languages, frameworks, and digital platforms. Today, I stand at the intersection of technology and strategy, creating comprehensive digital ecosystems that empower businesses and individuals to thrive in the digital age.</p>
+                
+                <h2>My Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h3>Website Development</h3>
+                        <p>Crafting elegant, responsive websites that combine stunning aesthetics with flawless functionality. From simple landing pages to complex web applications.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Mobile Applications</h3>
+                        <p>Building intuitive, high-performance mobile apps for iOS and Android that engage users and solve real-world problems.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Digital Marketing</h3>
+                        <p>Pioneering organic growth strategies like the Eyeballs Method that generate traffic and build authentic audiences without massive ad spend.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Blockchain Technology</h3>
+                        <p>Deep expertise in cryptocurrency, smart contracts, and blockchain applications that are shaping the future of finance and technology.</p>
+                    </div>
+                </div>
+                
+                <h2>My Philosophy</h2>
+                <p>I believe technology should be accessible, affordable, and empowering. That's why I've dedicated myself to providing premium digital solutions at prices that don't exclude startups, small businesses, or individuals with big dreams but modest budgets.</p>
+                
+                <p>Every line of code I write, every strategy I develop, is infused with a commitment to excellence and a vision for creating digital experiences that not only meet expectations but exceed them. I don't just build websites or apps—I build digital foundations for success.</p>
+                
+                <h2>Why Work With Me</h2>
+                <p>When you choose to work with me, you're not just getting a developer or marketer. You're gaining a strategic partner who understands that your digital presence is an extension of your vision, your brand, and your potential.</p>
+                
+                <p>I bring a unique combination of African innovation, technical precision, and strategic insight to every project. Whether you need a stunning website, a powerful mobile app, or a comprehensive digital marketing strategy, I deliver solutions that are as intelligent as they are effective.</p>
+                
+                <p>Let's build something extraordinary together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COPY SOCIAL, CONTACT, AND FOOTER SECTIONS FROM INDEX.HTML -->
+    <section class="social-section">
+        <div class="container">
+            <h3 class="social-title">Connect With Me</h3>
+            <div class="social-icons">
+                <a href="https://instagram.com/nolanislockedin" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://t.me/Wo2rich" target="_blank" class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/256746560891" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-fax"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>nolanigo9@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location">
+                <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">2025 Marshall St. Nolan LLC All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

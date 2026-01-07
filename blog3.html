@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Websites at Unbeatable Prices | Nolan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* COPY EXACT SAME CSS FROM INDEX.HTML */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #0a0a0a; --secondary-color: #121212; --accent-color: #8a6d3b;
+            --accent-light: #b89446; --text-color: #f0f0f0; --text-light: #b0b0b0;
+            --border-color: #333; --card-bg: #1a1a1a;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--secondary-color); padding: 20px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .knight-logo { font-size: 32px; color: var(--accent-color); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; letter-spacing: 1px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { font-weight: 500; font-size: 17px; padding: 5px 10px; border-radius: 4px; }
+        nav ul li a:hover { background-color: rgba(138, 109, 59, 0.1); }
+        .hamburger-menu { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
+        .hamburger-menu span { height: 3px; width: 100%; background-color: var(--text-color); border-radius: 10px; transition: all 0.3s ease; }
+        .hamburger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+        .hamburger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+        .mobile-nav { position: fixed; top: 80px; right: -100%; width: 300px; height: calc(100vh - 80px); background-color: var(--secondary-color); z-index: 999; transition: right 0.5s ease; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.3); }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul { list-style: none; }
+        .mobile-nav ul li { margin-bottom: 25px; }
+        .mobile-nav ul li a { font-size: 20px; font-weight: 500; }
+        .page-content { padding: 100px 0; }
+        .article-content { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 50px; border-radius: 15px; line-height: 1.8; }
+        .article-content h1 { color: var(--accent-color); margin-bottom: 30px; font-size: 36px; }
+        .article-content h2 { color: var(--accent-light); margin: 40px 0 20px; font-size: 28px; }
+        .article-content p { margin-bottom: 20px; font-size: 17px; }
+        .article-content ul, .article-content ol { margin: 20px 0 20px 30px; }
+        .article-content li { margin-bottom: 10px; }
+        .highlight { background-color: rgba(138, 109, 59, 0.1); padding: 20px; border-left: 4px solid var(--accent-color); margin: 30px 0; border-radius: 5px; }
+        .cta-box { background: linear-gradient(135deg, var(--accent-color), #9c7c48); padding: 40px; text-align: center; border-radius: 10px; margin: 50px 0; }
+        .cta-box h3 { font-size: 28px; margin-bottom: 20px; }
+        .cta-box .read-more { background-color: var(--primary-color); color: var(--text-color); margin-top: 20px; padding: 15px 30px; font-size: 18px; }
+        .cta-box .read-more:hover { background-color: #1a1a1a; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; }
+        .pricing-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid var(--border-color); }
+        .pricing-card h3 { color: var(--accent-light); margin-bottom: 20px; font-size: 24px; }
+        .price { font-size: 36px; color: var(--accent-color); font-weight: 700; margin: 20px 0; }
+        .pricing-card ul { list-style: none; margin: 20px 0; padding: 0; }
+        .pricing-card li { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+        .social-section, .contact-section, footer { /* Same as index */ }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger-menu { display: flex; }
+            .mobile-nav.active { right: 0; }
+            .article-content { padding: 30px; }
+            .article-content h1 { font-size: 30px; }
+            .article-content h2 { font-size: 24px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="knight-logo">♘</div>
+                <div class="logo-text">Nolan</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog1.html">Eyeballs Method</a></li>
+                    <li><a href="blog2.html">Crypto Guide</a></li>
+                    <li><a href="blog3.html">Web Dev</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog1.html">Eyeballs Method</a></li>
+                <li><a href="blog2.html">Crypto Guide</a></li>
+                <li><a href="blog3.html">Web Dev</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="article-content">
+                <h1>Professional Websites at Unbeatable Prices: Why You Need One Now</h1>
+                
+                <div class="highlight">
+                    <p><strong>Attention Business Owners, Entrepreneurs, and Visionaries:</strong> Your digital storefront is costing you money every single day you don't have it. I'm here to fix that with premium websites at prices that defy industry standards.</p>
+                </div>
+                
+                <p>Let me ask you a blunt question: In 2025, can you honestly afford to not have a professional online presence? While you're reading this, your competitors are capturing your potential customers, building authority in your industry, and establishing digital footprints that will dominate for years to come.</p>
+                
+                <p>I'm Marshall St. Nolan, and I've dedicated my career to solving this exact problem: creating stunning, high-performing websites that don't require you to mortgage your future to afford them. This isn't about cheap websites—it's about premium quality at accessible prices.</p>
+                
+                <h2>The Stark Reality of Not Having a Website in 2025</h2>
+                
+                <p>Consider these undeniable facts:</p>
+                
+                <ul>
+                    <li><strong>81% of consumers</strong> research online before making a purchase</li>
+                    <li><strong>75% of users</strong> admit they judge a company's credibility based on their website design</li>
+                    <li><strong>Websites generate</strong> 24/7 leads while you sleep, travel, or focus on other business areas</li>
+                    <li>Businesses with professional websites experience <strong>3x faster growth</strong> than those without</li>
+                </ul>
+                
+                <p>Your website isn't an expense—it's your most productive employee. It works every minute of every day, never takes a sick day, and consistently represents your brand at its absolute best.</p>
+                
+                <h2>Why Traditional Web Development Has Failed You</h2>
+                
+                <p>You've likely explored web development options before and been met with one of these frustrating scenarios:</p>
+                
+                <p><strong>1. The Agency Trap:</strong> $10,000+ quotes for basic websites, with months of development time and ongoing fees that never end.</p>
+                
+                <p><strong>2. The Freelancer Lottery:</strong> Inexpensive but unreliable, often disappearing mid-project or delivering subpar work that needs constant fixing.</p>
+                
+                <p><strong>3. The DIY Disaster:</strong> Wasting hundreds of hours trying to build it yourself, only to end up with something that looks amateurish and functions poorly.</p>
+                
+                <p><strong>4. The Template Trap:</strong> Cheap but generic templates that look exactly like your competitors' sites, doing nothing to establish your unique brand identity.</p>
+                
+                <p>I've created a different path—one that combines agency-quality work with freelancer affordability and personal attention.</p>
+                
+                <div class="highlight">
+                    <p><strong>My Promise:</strong> You get a custom-designed, professionally developed website that looks like it cost $15,000, functions flawlessly on every device, and establishes immediate credibility with your audience—all at a fraction of traditional agency prices.</p>
+                </div>
+                
+                <h2>What Makes My Websites Different</h2>
+                
+                <p>When you work with me, you're not just getting a developer—you're getting a strategic partner who understands that your website is the digital foundation of your business. Here's what sets my approach apart:</p>
+                
+                <h3>1. Strategic Design That Converts</h3>
+                <p>I don't just make websites look pretty—I design them to convert visitors into customers. Every color, button, and layout decision is based on conversion psychology and user experience principles.</p>
+                
+                <h3>2. Mobile-First Development</h3>
+                <p>With over 60% of web traffic coming from mobile devices, your website must perform flawlessly on phones and tablets. I build with mobile experience as the priority, not an afterthought.</p>
+                
+                <h3>3. Lightning-Fast Performance</h3>
+                <p>Slow websites lose visitors and rank poorly on Google. Every site I build is optimized for speed, ensuring your pages load in under 2 seconds on any connection.</p>
+                
+                <h3>4. SEO-Built Architecture</h3>
+                <p>Your website should be found. I build with SEO fundamentals integrated from day one, giving you a head start in search engine rankings.</p>
+                
+                <h3>5. Ongoing Support & Education</h3>
+                <p>I don't disappear after launch. You receive training on managing your content and have access to me for questions and support.</p>
+                
+                <h2>Transparent Pricing (No Surprises, No Hidden Fees)</h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Starter Package</h3>
+                        <div class="price">$499</div>
+                        <ul>
+                            <li>5 Custom Designed Pages</li>
+                            <li>Mobile Responsive Design</li>
+                            <li>Contact Form & Integration</li>
+                            <li>Basic SEO Setup</li>
+                            <li>1 Month Support</li>
+                        </ul>
+                        <p>Perfect for personal brands or small businesses just starting online.</p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Business Package</h3>
+                        <div class="price">$899</div>
+                        <ul>
+                            <li>10 Custom Designed Pages</li>
+                            <li>Advanced Mobile Optimization</li>
+                            <li>Blog/News Section</li>
+                            <li>Advanced SEO Implementation</li>
+                            <li>3 Months Support</li>
+                            <li>Social Media Integration</li>
+                        </ul>
+                        <p>Ideal for growing businesses needing comprehensive online presence.</p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Premium Package</h3>
+                        <div class="price">$1,499</div>
+                        <ul>
+                            <li>15+ Custom Designed Pages</li>
+                            <li>E-commerce Functionality</li>
+                            <li>Custom Animations & Interactions</li>
+                            <li>Complete SEO Strategy</li>
+                            <li>6 Months Support</li>
+                            <li>Priority Development</li>
+                        </ul>
+                        <p>For established businesses ready to dominate their market online.</p>
+                    </div>
+                </div>
+                
+                <p><strong>Note:</strong> All packages include custom design, responsive development, hosting setup assistance, and training. Need something specific? Custom packages available.</p>
+                
+                <h2>The Development Process: Simple, Transparent, Efficient</h2>
+                
+                <p>I've streamlined the website development process to eliminate stress and ensure exceptional results:</p>
+                
+                <p><strong>Step 1: Discovery & Strategy (2-3 days)</strong><br>
+                We dive deep into your business, goals, and audience to create a strategic plan for your website.</p>
+                
+                <p><strong>Step 2: Design & Approval (5-7 days)</strong><br>
+                I create custom design mockups for your review and refinement until you're thrilled with every detail.</p>
+                
+                <p><strong>Step 3: Development & Build (7-10 days)</strong><br>
+                Your approved designs are transformed into a fully functional, responsive website.</p>
+                
+                <p><strong>Step 4: Review & Revisions (3-5 days)</strong><br>
+                You test every aspect of your new website and request any final adjustments.</p>
+                
+                <p><strong>Step 5: Launch & Training (1-2 days)</strong><br>
+                We go live with your website and I train you on managing your content.</p>
+                
+                <p><strong>Total Timeline:</strong> 3-4 weeks from start to launch.</p>
+                
+                <h2>Why Waiting Is Costing You Money</h2>
+                
+                <p>Let's do some simple math:</p>
+                
+                <p>If your website could generate just <strong>2 new customers per month</strong> at an average value of $500 each, that's <strong>$1,000 monthly</strong> or <strong>$12,000 annually</strong> in new revenue.</p>
+                
+                <p>Every month you delay launching your website, you're potentially losing <strong>$1,000 in revenue</strong>. Over 6 months, that's <strong>$6,000 lost</strong>—more than the cost of even my premium package.</p>
+                
+                <p>This isn't hypothetical. Every client I've worked with has seen a return on their investment within the first 3-6 months, often much sooner.</p>
+                
+                <div class="cta-box">
+                    <h3>Your Digital Presence Can't Wait Another Day</h3>
+                    <p>While you're deciding, your competitors are capturing your market share. While you're hesitating, potential customers are choosing businesses with professional online presences. While you're thinking about it, revenue is flowing elsewhere.</p>
+                    <p>The time for action is now. Let's build the website that becomes your most valuable business asset.</p>
+                    <a href="https://wa.me/256746560891" class="read-more" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Message Me on WhatsApp Now
+                    </a>
+                    <p style="margin-top: 20px; font-size: 16px;">Or call me directly: +256746560891</p>
+                </div>
+                
+                <h2>What My Clients Say</h2>
+                
+                <div class="highlight">
+                    <p><em>"Marshall built our website in 3 weeks for less than half of what other developers quoted. We've already generated 12 new clients through the site in the first month alone. Best investment we've made in our business."</em> — Sarah K., Consulting Firm Owner</p>
+                </div>
+                
+                <div class="highlight">
+                    <p><em>"I was nervous about working with a developer remotely, but Marshall made the process seamless. Our website looks incredible and functions perfectly. He even taught me how to update it myself. Exceptional value."</em> — David T., E-commerce Entrepreneur</p>
+                </div>
+                
+                <div class="highlight">
+                    <p><em>"After wasting $2,000 on a freelancer who never delivered, I almost gave up. Then I found Marshall. He not only built exactly what I wanted but added strategic suggestions that have doubled our online conversions. Professional, affordable, brilliant."</em> — Michael R., Tech Startup Founder</p>
+                </div>
+                
+                <h2>Your Next Step (It's Simple)</h2>
+                
+                <p>You have three choices right now:</p>
+                
+                <p><strong>Option 1:</strong> Close this page and continue losing potential customers and revenue every single day.</p>
+                
+                <p><strong>Option 2:</strong> Try to build it yourself or hire someone cheaper, risking wasted time, money, and frustration.</p>
+                
+                <p><strong>Option 3:</strong> Message me right now and let's discuss how we can build your dream website within your budget and timeline.</p>
+                
+                <p>The most successful business owners I work with all have one thing in common: they recognize opportunity and act decisively. They understand that in the digital age, your website isn't a luxury—it's as essential as electricity or internet access.</p>
+                
+                <p>Don't let another day pass with an inadequate online presence or no presence at all. The website that could transform your business is just a conversation away.</p>
+                
+                <p><strong>I'm ready when you are.</strong> Let's build something extraordinary together.</p>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="https://wa.me/256746560891" class="read-more" target="_blank" style="font-size: 18px; padding: 15px 40px;">
+                        <i class="fab fa-whatsapp"></i> Start Your Website Today
+                    </a>
+                    <p style="margin-top: 20px; color: var(--text-light);">Response time: Typically within 1 hour during business hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COPY SOCIAL, CONTACT, AND FOOTER SECTIONS FROM INDEX.HTML -->
+    <section class="social-section">
+        <div class="container">
+            <h3 class="social-title">Connect With Me</h3>
+            <div class="social-icons">
+                <a href="https://instagram.com/nolanislockedin" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://t.me/Wo2rich" target="_blank" class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/256746560891" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-fax"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>+256746560891</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <p>nolanigo9@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location">
+                <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">2025 Marshall St. Nolan LLC All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
